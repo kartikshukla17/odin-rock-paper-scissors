@@ -7,12 +7,12 @@ function getComputerChoice() {
     } else {
         computerchoice = "scissors";
     }
-    console.log(computerchoice);
-    return computerchoice;
+    console.log(computerchoice)
+    return computerchoice
 }
 
 function getHumanChoice(){
-    let humanchoice = parseInt(prompt("enter your choice(1,2,3): "));
+    let humanchoice = parseInt(prompt("enter your choice 1(rock),2(paper),3(scissors)): "));
     if (humanchoice == 1) {
         humanchoice = "rock";
     } else if (humanchoice == 2) {
@@ -23,32 +23,34 @@ function getHumanChoice(){
         console.log("Invalid Choice")
         return null;
     }
+    console.log(humanchoice);
+    return humanchoice
 }
 
 let humanScore = 0
 let computerScore = 0
 
 function playRound(humanchoice, computerchoice){
-    if (humanchoice == computerchoice){
+    if (humanchoice === computerchoice){
         console.log("tie")
-    }else if (humanchoice == "stone" && computerchoice == "scissors"){
+    }else if (humanchoice === "rock" && computerchoice == "scissors"){
         console.log("You won!")
-        humanScore += 1
-    }else if (humanchoice == "stone" && computerchoice == "paper"){
+        humanScore ++
+    }else if (humanchoice === "rock" && computerchoice == "paper"){
             console.log("You loose")
-            computerScore +=1
-    }else if (humanchoice == "paper" && computerchoice == "scissors"){
+            computerScore ++
+    }else if (humanchoice === "paper" && computerchoice == "scissors"){
             console.log("You loose!")
-            computerScore +=1
-    }else if (humanchoice == "paper" && computerchoice == "stone"){
+            computerScore ++
+    }else if (humanchoice === "paper" && computerchoice == "rock"){
             console.log("You won")
-            humanScore += 1
-    }else if (humanchoice == "scissors" && computerchoice == "stone"){
+            humanScore ++
+    }else if (humanchoice === "scissors" && computerchoice == "rock"){
             console.log("You loose!")
-            computerScore +=1
-    }else if (humanchoice == "scissors" && computerchoice == "paper"){
+            computerScore ++
+    }else if (humanchoice === "scissors" && computerchoice == "paper"){
             console.log("You won")
-            humanScore += 1
+            humanScore ++
     }else {
         console.log("wrong input")
     }
@@ -58,13 +60,13 @@ function playGame(){
     let humanchoice = getHumanChoice()
     let computerchoice = getComputerChoice()
 
-    return playRound(humanchoice,computerchoice)
+    playRound(humanchoice,computerchoice)
 }
 for (let i=0 ; i<5 ; i++){
-    return playGame()
+    playGame()
 }
 
-console.log('final scores: Human: ${humanScore}, Computer: ${computerScore}')
+console.log('final scores: Human: '+ humanScore + ',Computer: '+ computerScore)
 if (humanScore > computerScore){
     console.log("you won")
 } else if (humanScore < computerScore){
